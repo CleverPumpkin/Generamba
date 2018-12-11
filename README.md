@@ -1,28 +1,4 @@
-<p align="center">
-  <img src="http://i.imgur.com/1AwoVaN.png"/>
-</p>
-
-[![Build Status](https://travis-ci.org/rambler-digital-solutions/Generamba.svg)](https://travis-ci.org/rambler-digital-solutions/Generamba)
-[![Gem Version](https://badge.fury.io/rb/generamba.svg)](https://badge.fury.io/rb/generamba)
-[![Code Climate](https://codeclimate.com/github/rambler-digital-solutions/Generamba/badges/gpa.svg)](https://codeclimate.com/github/rambler-digital-solutions/Generamba)
-
-**Generamba** is a code generator made for working with Xcode. Primarily it is designed to generate VIPER modules but it is quite easy to customize it for generation of any other classes (both in Objective-C and Swift).
-
-*We keep evolving Generamba:* 
-- [Vision](https://github.com/rambler-digital-solutions/Generamba/blob/develop/VISION.md),
-- [Changelog](https://github.com/rambler-digital-solutions/Generamba/blob/develop/CHANGELOG.md), 
-- [Release notes](https://github.com/rambler-digital-solutions/Generamba/releases).
-
-Besides, we started working on 2.0 version with powerful DSL and plugins. Check the [release roadmap](https://github.com/rambler-digital-solutions/Generamba/blob/develop/docs/2.x/roadmap.md)!
-
-![Generamba Screenshot](https://habrastorage.org/files/b98/770/b37/b98770b37dc54de98daf0e22fea38478.gif)
-
-### Key features
-
-- Supports work with *.xcodeproj* files out of the box. All generated class files are automatically placed to specific folders and groups of Xcode project.
-- Can generate both code itself and tests adding them to right targets.
-- Based on work with [liquid-templates](https://github.com/Shopify/liquid) that have plain and readable syntax in comparison with templates for Xcode.
-- It is very easy to create a new module: `generamba gen [MODULE_NAME] [TEMPLATE_NAME]`. You do not need to input a bunch of data each time because each project corresponds to only one configuration file that holds standard file system and Xcode-project pathes, names of targets, information about the author.
+[Original README](https://github.com/CleverPumpkin/Generamba/blob/develop/ORIGINAL-README.md)
 
 ### Installation
 
@@ -30,15 +6,23 @@ Besides, we started working on 2.0 version with powerful DSL and plugins. Check 
 ```bash
 $ ruby --version
 ```
-When necessary you can install the required Ruby version with the help of [`rvm`](http://octopress.org/docs/setup/rvm/) or [`rbenv`](http://octopress.org/docs/setup/rbenv/).
 
-Run the command `gem install generamba`.
+Since current version from Gems is not compatible with Xcode 9/10 - install fixed version from this repo:
+
+* `sudo gem uninstall generamba`
+* `sudo gem install specific_install`
+* `sudo gem specific_install git@github.com:CleverPumpkin/Generamba.git`
+
 
 ### Usage
-1. Run [`generamba setup`](https://github.com/rambler-digital-solutions/Generamba/wiki/Available-Commands#basic-generamba-configuration) in the project root folder. This command helps to create [Rambafile](https://github.com/rambler-digital-solutions/Generamba/wiki/Rambafile-Structure) that define all configuration needed to generate code. You can modify this file directly in future.
-2. Add all templates planned to use in the project to the generated [Rambafile](https://github.com/rambler-digital-solutions/Generamba/wiki/Rambafile-Structure). You can begin with one of the templates from our catalog: `{name: 'rviper_controller'}`.
-3. Run [`generamba template install`](https://github.com/rambler-digital-solutions/Generamba/wiki/Available-Commands#template-installation). All the templates will be placed in the '/Templates' folder of your current project.
-4. Run [`generamba gen [MODULE_NAME] [TEMPLATE_NAME]`](https://github.com/rambler-digital-solutions/Generamba/wiki/Available-Commands#module-generation) - It creates module with specific name from specific template.
+1. \***Only if starting from scratch and there is no `Rambafile` file in a project directory.**
+	
+	Run `generamba setup` in the project root folder. This command helps to create [Rambafile](https://github.com/rambler-digital-solutions/Generamba/wiki/Rambafile-Structure) that define all configuration needed to generate code. You can modify this file directly in future.
+2. \***Only if starting from scratch and there is no `Rambafile` file in a project directory.**
+
+	Add all templates planned to use in the project to the generated [Rambafile](https://github.com/rambler-digital-solutions/Generamba/wiki/Rambafile-Structure). You can begin with one of the templates from our catalog: `{name: 'rviper_controller'}`.
+3. Run `generamba template install`. All the templates will be placed in the '/Templates' folder of your current project.
+4. Run `generamba gen [MODULE_NAME] [TEMPLATE_NAME]` - It creates module with specific name from specific template.
 
 ### Additional info
 
